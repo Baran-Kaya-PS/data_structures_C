@@ -28,12 +28,18 @@ void* pop(Pile* pile){
     void* temp = pile->last;
     pile->last = pile->last->prev;
     if (pile->last != NULL){
-        pile->last->next == NULL;
+        pile->last->next = NULL;
     }
     free(temp);
     return deleted_value;
 };
 
-int est_vide(Pile* pile);
+int est_vide(Pile* pile){
+    if (pile->last == NULL)
+        return 1;
+    else return 0;
+};
 
-void detruire_pile(Pile* pile);
+void detruire_pile(Pile* pile){
+    free(pile);
+};
