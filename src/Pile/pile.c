@@ -20,7 +20,19 @@ void push(Pile* pile, void* donnee){
     }
 };
 
-void* pop(Pile* pile);
+void* pop(Pile* pile){
+    if (pile->last == NULL) {
+        return NULL;
+    }
+    void* deleted_value = pile->last->data;
+    void* temp = pile->last;
+    pile->last = pile->last->prev;
+    if (pile->last != NULL){
+        pile->last->next == NULL;
+    }
+    free(temp);
+    return deleted_value;
+};
 
 int est_vide(Pile* pile);
 

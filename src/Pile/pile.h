@@ -1,6 +1,7 @@
 typedef struct Link {
     void* data;
     struct Link* next;
+    struct Link* prev;
 } Link;
 
 typedef struct Pile {
