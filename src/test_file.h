@@ -4,3 +4,6 @@
 #include <stdbool.h>
 bool test_creer_pile();
 bool push_pile_vide();
+bool push_pile_non_vide();
+bool push_pile_avec_5000éléments();
+void push_pile_avec_5000_élément_vérification_des_valeurs();

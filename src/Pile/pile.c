@@ -43,3 +43,4 @@ int est_vide(Pile* pile){
 void detruire_pile(Pile* pile){
     free(pile);
 };
+
