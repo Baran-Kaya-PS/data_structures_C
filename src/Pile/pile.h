@@ -8,7 +8,7 @@ typedef struct Pile {
     Link* last;
 } Pile;
 
-Pile* créer_pile();
+Pile* creer_pile();
 void push(Pile* pile, void* donnee);
 void top(Pile* pile);
 void* pop(Pile* pile);

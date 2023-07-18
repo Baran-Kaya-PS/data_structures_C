@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-Pile* créer_pile(){
+Pile* creer_pile(){
     Pile* pile = (Pile*) malloc(sizeof(Pile));
     pile->last = NULL;
     return pile;
@@ -38,7 +38,7 @@ void top(Pile* pile){
     } else {
         printf("La pile est vide\n");
     }
-};
+}
 void values(Pile* pile){
     Link* temp = pile->last;
     while (temp != NULL){
