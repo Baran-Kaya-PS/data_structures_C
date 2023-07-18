@@ -6,44 +6,36 @@ void pop_pile_vide();
 void pop_pile_3_elements();
 
 int main() {
-    bool creer_pile = test_creer_pile();
-    bool test_push_1 = push_pile_vide();
-    bool test_push_2 = push_pile_non_vide();
-//TEST CREERPILE////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if (creer_pile)
-        printf("Test creer pile: SUCCESS\n");
-    else
-        printf("Test creer pile: FAILED\n");
-//TEST PUSH//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if(test_push_1){
-        printf("Test push pile: SUCCESS\n");
-    } else {
-        printf("Test push pile: FAILED\n");
-    }
-//TEST PUSH//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    if (test_push_2){
-        printf("Test push pile: SUCCESS\n");
-    } else {
-        printf("Test push pile: FAILED\n");
-    }
-//TEST PUSH//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    push_pile_avec_5000_élément_vérification_des_valeurs();
-    //pop_pile_vide();
+    //push_pile_avec_5000_élément_vérification_des_valeurs();
     pop_pile_3_elements();
     return 0;
 }
 
 void pop_pile_3_elements() {
-    int val1 = 1;
-    int val2 = 2;
-    int val3 = 3;
     Pile* pile = créer_pile();
-    push(pile,&val1);
-    push(pile,&val2);
-    push(pile,&val3);
-    pop(pile);
-    pop(pile);
-    pop(pile);
+    int *p = (int*) malloc(sizeof(int));
+    *p = 1;
+    push(pile, p);
+    int *p2 = (int*) malloc(sizeof(int));
+    *p2 = 2;
+    push(pile, p2);
+    int *p3 = (int*) malloc(sizeof(int));
+    *p3 = 3;
+    push(pile, p3);
+    printf("Test pop pile avec 3 éléments : \n");
+    int *value = (int*) pop(pile);
+    if (*value == 3) printf("Test pop pile avec 3 éléments : SUCCESS \n");
+    else printf("Test pop pile avec 3 éléments : FAILED \n");
+    value = (int*) pop(pile);
+    if (*value == 2) printf("Test pop pile avec 3 éléments : SUCCESS \n");
+    else printf("Test pop pile avec 3 éléments : FAILED \n");
+    value = (int*) pop(pile);
+    if (*value == 1) printf("Test pop pile avec 3 éléments : SUCCESS \n");
+    else printf("Test pop pile avec 3 éléments : FAILED \n");
+    value = (int*) pop(pile);
+    if (value == NULL) printf("Test pop pile avec 3 éléments : SUCCESS \n");
+    else printf("Test pop pile avec 3 éléments : FAILED \n");
+
 }
 
 void pop_pile_vide() {

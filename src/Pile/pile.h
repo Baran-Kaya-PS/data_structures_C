@@ -15,3 +15,4 @@ void* pop(Pile* pile);
 int est_vide(Pile* pile);
 void detruire_pile(Pile* pile);
 void values(Pile* pile);
+void lenght(Pile* pile);

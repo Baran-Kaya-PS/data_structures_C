@@ -9,30 +9,19 @@ Pile* créer_pile(){
 };
 
 void push(Pile* pile, void* donnee){
-    Link* new_link = (Link*) malloc(sizeof(Link)); // new link with data
-    new_link->data = donnee; // put the data into the new link
-    new_link->next=NULL; // put the next into null
-    if (pile->last==NULL){ // if statement if the last of the stack is null then we put the new link at the end of the stack
-        pile->last=new_link;
-    } else {
-        new_link->next = pile->last;
-        pile->last = new_link;
-    }
-};
-
+    Link* link = (Link*) malloc(sizeof(Link));
+    link->data = donnee;
+    link->next = pile->last;
+    pile->last = link;
+}
 void* pop(Pile* pile){
-    if (pile->last == NULL) {
-        printf("Pile Vide !");
-        return 0;
-    }
-    void* deleted_value = pile->last->data;
-    printf("%d\n",*(int*) deleted_value);
-    void* temp = pile->last;
-    pile->last = pile->last->prev;
     if (pile->last != NULL){
-        pile->last->next = NULL;
+        Link* temp = pile->last;
+        pile->last = pile->last->next;
+        return temp->data;
+    } else {
+        return NULL;
     }
-    free(temp);
 }
 int est_vide(Pile* pile){
     if (pile->last == NULL)
@@ -49,5 +38,21 @@ void top(Pile* pile){
     } else {
         printf("La pile est vide\n");
     }
+};
+void values(Pile* pile){
+    Link* temp = pile->last;
+    while (temp != NULL){
+        printf("%d\n", *(int*)temp->data);
+        temp = temp->next;
+    }
+};
+void lenght(Pile* pile){
+    Link* temp = pile->last;
+    int i = 0;
+    while (temp != NULL){
+        i++;
+        temp = temp->next;
+    }
+    printf("%d\n", i);
 };
 
