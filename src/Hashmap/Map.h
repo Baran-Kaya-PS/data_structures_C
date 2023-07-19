@@ -14,6 +14,8 @@ typedef struct HashMap{
     int capacity;
 } HashMap;
 
+Map* createMap();
+HashMap* createHashMap(int);
 int size(HashMap);
 void* values(HashMap);
 bool isEmpty(HashMap);
