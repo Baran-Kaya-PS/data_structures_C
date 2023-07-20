@@ -12,12 +12,14 @@ typedef struct HashMap{
     Map* map;
     int size;
     int capacity;
+    struct Map* firstvalue;
 } HashMap;
 
 Map* createMap();
 HashMap* createHashMap(int);
+void resetMap(HashMap* hashMap);
 int size(HashMap);
-void* values(HashMap);
+void values(HashMap);
 bool isEmpty(HashMap);
 bool containsKey(HashMap ,void* key);
 bool containsValue(HashMap,void* value);
